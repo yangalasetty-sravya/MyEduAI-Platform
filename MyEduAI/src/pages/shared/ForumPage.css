@@ -1,0 +1,249 @@
+/* START OF FILE ForumPage.css */
+
+/* Dark Theme Palette */
+/* Main Background: #282c34 (Dark Charcoal) */
+/* Text Color: #abb2bf (Muted Light Grey) */
+/* Accent/Heading Color: #61dafb (Cyan Blue) */
+/* Card/Panel Background: #3e4451 (Slightly Lighter Charcoal) */
+/* Borders/Separators: #5c6370 (Muted Dark Grey) */
+/* Input/Textarea Background: #1c1e22 (Very Dark Grey) */
+/* Active/Hover Background: #4f5766 (Distinct Dark Grey) */
+/* Reply Box Background: #333742 (Another Dark Grey Shade) */
+
+.forum-page {
+  padding: 30px; /* Internal padding of the dark forum box */
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  /* --- IMPORTANT CHANGE START --- */
+  /* Ensure the dark page spans the full width of its parent container */
+  width: 100%; /* Explicitly set to 100% of its parent's content box */
+  margin: 0; /* Remove all external margins to eliminate the 'backside part' */
+  /* --- IMPORTANT CHANGE END --- */
+  background-color: #282c34; /* Main background for the forum container */
+  color: #abb2bf; /* Default text color */
+  border-radius: 12px; /* More rounded corners for the container */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Deeper, more noticeable shadow */
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; /* Professional font stack */
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+/* Headings */
+.forum-page h2,
+.forum-page h3,
+.forum-page h4 {
+  color: #61dafb; /* Accent color for headings */
+  margin-bottom: 20px; /* More spacing below headings */
+  font-weight: 600; /* Slightly bolder headings */
+}
+
+.forum-page h2 {
+    font-size: 2.2em; /* Larger main title */
+    text-align: center; /* Keep main title centered within its own column */
+    margin-bottom: 40px;
+}
+
+.forum-page h3 {
+    font-size: 1.8em;
+    border-bottom: 1px solid #5c6370; /* Subtle separator */
+    padding-bottom: 10px;
+}
+
+.forum-page h4 {
+    font-size: 1.4em;
+}
+
+/* Inputs and Textareas */
+.new-thread textarea,
+.new-thread input,
+.thread-detail textarea {
+  width: 100%;
+  padding: 12px; /* Increased padding */
+  margin-top: 10px; /* More spacing */
+  margin-bottom: 18px; /* More spacing */
+  font-size: 16px; /* Larger font */
+  background-color: #1c1e22; /* Very dark background */
+  color: #e0e0e0; /* Light text color for input */
+  border: 1px solid #5c6370; /* Subtle dark border */
+  border-radius: 8px; /* More rounded corners */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus */
+}
+
+.new-thread textarea:focus,
+.new-thread input:focus,
+.thread-detail textarea:focus {
+  border-color: #61dafb; /* Accent color on focus */
+  box-shadow: 0 0 0 3px rgba(97, 218, 251, 0.2); /* Soft glow on focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Placeholder color for inputs/textareas */
+.new-thread textarea::placeholder,
+.new-thread input::placeholder,
+.thread-detail textarea::placeholder {
+  color: #8c929e; /* Lighter placeholder text for readability */
+}
+
+/* Buttons */
+.new-thread button,
+.thread-detail button {
+  background-color: #61dafb; /* Accent color for buttons */
+  color: #1c1e22; /* Dark text for strong contrast */
+  border: none;
+  padding: 12px 25px; /* More padding */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer;
+  font-size: 17px; /* Larger font */
+  font-weight: 700; /* Bolder text */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover transition */
+  display: block; /* Make button take full width if desired, or adjust display */
+  width: fit-content; /* Adjust width to content */
+  margin-left: auto; /* Push button to the right */
+}
+
+.new-thread button:hover,
+.thread-detail button:hover {
+  background-color: #4fafd9; /* Slightly darker accent on hover */
+  transform: translateY(-1px); /* Subtle lift effect */
+}
+
+.thread-list {
+  border-top: 1px solid #5c6370; /* Darker border */
+  padding-top: 30px; /* More padding top */
+}
+
+.thread-list p {
+    font-style: italic;
+    color: #9da5b4;
+    text-align: center;
+    padding: 20px;
+}
+
+.thread-card {
+  border: 1px solid #5c6370; /* Darker border */
+  border-radius: 10px; /* Slightly more rounded */
+  padding: 18px; /* Slightly more padding */
+  margin-bottom: 18px; /* More margin */
+  cursor: pointer;
+  background: #3e4451; /* Dark background for cards */
+  color: #e0e0e0; /* Light text for cards */
+  transition: all 0.2s ease-in-out; /* Smooth transition for hover/active */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.thread-card:hover {
+  transform: translateY(-3px); /* More pronounced lift on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+  background: #4f5766; /* Slightly darker background on hover */
+}
+
+.thread-card.active {
+  border-color: #61dafb; /* Accent color for active border */
+  background: #4f5766; /* Distinct dark background for active */
+  box-shadow: 0 0 0 3px rgba(97, 218, 251, 0.3), 0 4px 10px rgba(0, 0, 0, 0.3); /* Glow effect + subtle shadow */
+}
+
+.thread-card h4 {
+  color: #61dafb; /* Heading color in cards */
+  margin-bottom: 8px; /* Spacing for card title */
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.thread-card p {
+  font-size: 15px; /* Readable font size */
+  line-height: 1.5; /* Good line spacing */
+  color: #abb2bf; /* Main text color */
+  margin-bottom: 10px;
+}
+
+.meta {
+  font-size: 12px; /* Slightly smaller font */
+  color: #9da5b4; /* Muted color for meta info */
+  margin-top: 10px; /* More spacing */
+  display: flex;
+  justify-content: flex-end; /* Align meta info to the right */
+  gap: 15px; /* Space between items if more are added */
+}
+
+
+.thread-detail {
+  padding: 25px; /* More padding */
+  border: 1px solid #5c6370; /* Darker border */
+  border-radius: 10px; /* Rounded corners */
+  background: #3e4451; /* Dark background for detail section */
+  color: #e0e0e0; /* Light text */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* Shadow for detail section */
+}
+
+.thread-detail h3 {
+  color: #61dafb; /* Accent color for thread title */
+  margin-bottom: 15px;
+  font-size: 2em;
+  border-bottom: none; /* Remove bottom border for main thread title */
+  padding-bottom: 0;
+}
+
+.thread-detail > p { /* Target the main thread content paragraph */
+  color: #abb2bf; /* Main text color */
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 25px; /* Space before replies heading */
+  border-bottom: 1px dashed #5c6370; /* Dotted line separator */
+  padding-bottom: 25px;
+}
+
+.thread-detail h4 {
+  color: #61dafb; /* Accent color for 'Replies' heading */
+  margin-top: 25px; /* Space above replies heading */
+  margin-bottom: 20px; /* Space below replies heading */
+  font-size: 1.6em;
+  border-bottom: none; /* Remove border */
+  padding-bottom: 0;
+}
+
+.reply-box {
+  background: #333742; /* Slightly darker than card background for replies */
+  margin: 12px 0; /* Adjust margin */
+  padding: 15px; /* More padding */
+  border-radius: 8px;
+  border: 1px solid #4a4e5a; /* Subtle border for replies */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15); /* Small shadow for each reply */
+}
+
+.reply-box p {
+  color: #e0e0e0; /* Light text for reply content */
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 8px; /* Space before author name */
+}
+
+.reply-box small {
+  color: #9da5b4; /* Muted color for author info */
+  font-size: 12px; /* Slightly larger font for readability */
+  display: block; /* Ensure it takes full width */
+  text-align: right; /* Align author to the right */
+  font-style: italic;
+}
+.ai-summary-box {
+  background: #1e1e1e;
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 16px;
+  border-left: 4px solid rgb(51, 203, 213);
+  color: #ccc;
+}
+
+.summarize-btn {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: rgb(24, 124, 137);
+  border: none;
+  border-radius: 6px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* END OF FILE ForumPage.css */

@@ -1,0 +1,327 @@
+/* General container for the progress report page */
+.progress-report-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
+
+/* Loading and error states */
+.progress-report-container.loading,
+.progress-report-container.error,
+.progress-report-container.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px; /* Ensures a decent height even with no data */
+  text-align: center;
+}
+
+.loading-spinner {
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid #007bff; /* Blue */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  color: #dc3545; /* Red */
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+.progress-report-container.no-data p {
+  font-size: 1.1em;
+  color: #555;
+}
+
+.progress-report-container.no-data a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.progress-report-container.no-data a:hover {
+  text-decoration: underline;
+}
+
+/* Title */
+.report-title {
+  font-size: 2.5em;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+/* Overall Summary Cards */
+.overall-summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.summary-card {
+  background-color: #f8f9fa;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.summary-card h3 {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.summary-card p {
+  font-size: 2.2em;
+  font-weight: 700;
+  color: #007bff; /* Default blue */
+}
+
+/* Specific colors for summary cards */
+.summary-card.completed p { color: #28a745; } /* Green */
+.summary-card.in-progress p { color: #ffc107; } /* Orange/Yellow */
+.summary-card.not-started p { color: #6c757d; } /* Grey */
+
+
+/* Charts Section */
+.charts-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.chart-card {
+  background-color: #f8f9fa;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+}
+
+.chart-card h3 {
+  font-size: 1.5em;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Overall Progress Bar */
+.overall-progress-bar-container {
+  width: 90%; /* Adjust width as needed */
+  height: 25px;
+  background-color: #e0e0e0;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.overall-progress-bar {
+  height: 100%;
+  background-color: #007bff; /* Blue */
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Text on the right */
+  transition: width 0.5s ease-in-out;
+}
+
+.overall-progress-bar .progress-text {
+  color: white;
+  font-weight: bold;
+  padding: 0 10px;
+  font-size: 0.9em;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.overall-progress-description {
+  margin-top: 15px;
+  font-size: 0.95em;
+  color: #666;
+  text-align: center;
+}
+/* File: src/pages/Learner/ProgressReport.css */
+
+/* ... (existing CSS) ... */
+
+/* Style for the message when no videos are found */
+.overall-progress-description.no-videos-message {
+  color: #888;
+  font-style: italic;
+  font-size: 0.9em;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+/* Individual Course List */
+.course-list-section {
+  margin-top: 50px;
+}
+
+.course-list-section h2 {
+  font-size: 2em;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.course-progress-list {
+  list-style: none;
+  padding: 0;
+  display: grid; /* Use grid for list items */
+  gap: 20px; /* Space between items */
+}
+
+.course-progress-item {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.course-progress-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.course-progress-item .course-link {
+  display: flex;
+  align-items: center; /* Vertically align content */
+  padding: 20px 25px;
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit text color */
+  justify-content: space-between; /* Space out info and progress */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.course-progress-item .course-info {
+  flex-basis: 60%; /* Take 60% of width */
+}
+
+.course-progress-item .course-info h3 {
+  font-size: 1.3em;
+  color: #2c3e50;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.course-progress-item .course-info p {
+  font-size: 0.95em;
+  color: #666;
+  margin-bottom: 3px;
+}
+
+.course-progress-item .progress-details {
+  flex-basis: 35%; /* Take 35% of width */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align progress items to the right */
+}
+
+.course-progress-item .progress-percentage {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #007bff; /* Blue */
+  margin-bottom: 8px;
+}
+
+.course-progress-item .progress-bar-container {
+  width: 100%;
+  height: 10px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.course-progress-item .progress-bar {
+  height: 100%;
+  background-color: #28a745; /* Green */
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out;
+}
+
+.course-progress-item .video-count {
+  font-size: 0.85em;
+  color: #777;
+  margin-top: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .progress-report-container {
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .report-title {
+    font-size: 2em;
+  }
+
+  .overall-summary-cards {
+    grid-template-columns: 1fr; /* Stack cards vertically */
+  }
+
+  .charts-section {
+    grid-template-columns: 1fr; /* Stack charts vertically */
+  }
+
+  .chart-card {
+    padding: 20px;
+  }
+
+  .course-progress-item .course-link {
+    flex-direction: column; /* Stack info and progress vertically */
+    align-items: flex-start; /* Align left */
+  }
+
+  .course-progress-item .course-info,
+  .course-progress-item .progress-details {
+    flex-basis: 100%; /* Take full width */
+    width: 100%;
+  }
+
+  .course-progress-item .progress-details {
+    align-items: flex-start; /* Align progress items to the left */
+    margin-top: 15px; /* Add space between info and progress */
+  }
+
+  .course-progress-item .progress-percentage {
+    /* Optional: re-align percentage if desired */
+    align-self: flex-end; /* Keep percentage to the right */
+    width: 100%; /* Ensure it spans if other items don't */
+    text-align: right;
+  }
+}

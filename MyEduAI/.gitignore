@@ -1,0 +1,33 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+**/node_modules/
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+eduai-ec3f1-72e897816409.json
+firebase-service-account.json
+
+# production
+/build
+
+# Add this if not already present
+.env
+.env.development
+.env.production
+.env.test
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+".env" 
+"server/.env" 
